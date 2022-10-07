@@ -1,5 +1,5 @@
 ---
-title: "Building a K8s cluster with kubeadm"
+title: "Building a Kubernetes cluster with kubeadm"
 date: 2022-10-06T15:34:30+05:45
 categories:
   - Kubernetes
