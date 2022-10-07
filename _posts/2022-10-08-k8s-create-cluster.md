@@ -1,6 +1,5 @@
 ---
 title: "Building a K8s cluster with kubeadm"
-date: 2019-04-18T15:34:30-04:00
 categories:
   - Kubernetes
 tags:
@@ -16,8 +15,7 @@ Before we set up our cluster, there are a few packages and configurations we nee
 Before installing `containerd`, there are a few prerequisites we need to install and configure, let's get them done in each of the Ubuntu servers:
 
 ```shell
-# Updating kernel conf to load some kernel modules(overlay and netfilter) on startup:
-
+# Updating kernel conf to load some kernel modules(overlay and netfilter) on startup
 cat << EOF | sudo tee /etc/modules-load.d/containerd.conf
 > overlay
 > br_netfilter
