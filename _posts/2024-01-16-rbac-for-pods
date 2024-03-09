@@ -67,6 +67,7 @@ spec:
   containers:
   - image: nginx
     name: scholar-pod
+
 ---
 apiVersion: v1
 kind: Pod 
