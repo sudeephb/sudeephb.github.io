@@ -3,8 +3,6 @@ title: "Building a Kubernetes cluster with kubeadm"
 date: 2022-10-06T15:34:30+05:45
 categories:
   - Kubernetes
-tags:
-  - kubeadm
 ---
 
 In this article, let's create a basic Kubernetes cluster using `kubeadm`. `kubeadm` is a tool that simplifies the process of creating a k8s cluster.
