@@ -5,10 +5,13 @@ categories:
   - Kubernetes
 ---
 
-If you've ever used Linux, you've probably used, or at least heard of, RBAC. RBAC stands for Role Based Access Control, and it provides exactly that. 
-It's intuitive to think of RBAC as allowing or restricting users to do stuff. But, what if you wanted a Kubernetes pod to be able to do something on the Kubernetes cluster. What if you wanted it to be able to not do some things? Kubernetes RBAC also provides services for it. 
+If you've ever used Linux, you've probably used, or at least heard of, RBAC. RBAC stands for Role Based Access Control, and it provides exactly that.
 
-First, you'd need to create a role that defines what the pod should be able to do. Whatever you don't explicitly specify will be restricted. Let's create a role named `scholar-role` in the existing namespace `library` that allows the pods to see information about the available pods. Let's also give the pod ability to see other pod's logs in the same namespace.
+It's intuitive to think of RBAC as allowing or restricting users to do stuff. But, what if you wanted a Kubernetes pod to be able to do something on the Kubernetes cluster. What if you wanted it to be able to not do some things? Kubernetes RBAC also provides features for it.
+
+First, you'd need to create a role that defines what the pod should be able to do. Whatever you don't explicitly specify will be restricted. 
+
+Let's create a role named `scholar-role` in the existing namespace `library` that allows the pods to see information about the available pods. Let's also give the pod ability to see other pod's logs in the same namespace.
 
 ```
 # scholar-role.yaml
@@ -111,7 +114,8 @@ Let's apply the configuration to create the RoleBinding:
 kubectl apply -f ./scholar-binding.yaml
 ```
 
-We are done! But how do we make sure things work as they should. Precisely, how do we make sure that the `scholar-pod` can read the pods and pods' logs, and that `dumb-pod` cannot do that. 
+We are done! But how do we make sure things work as they should. Precisely, how do we make sure that the `scholar-pod` can read the pods and pods' logs, and that `dumb-pod` cannot do that.
+
 One way we could verify the permissions is by calling the Kubernetes API to perform the read operations from each of the pods. But that's too much work just to verify that our ServiceAccounts work as expected. Instead, we can use the `can-i` subcommand provided by `kubectl auth` to test the permissions. 
 
 Let's see if our `scholar-account` ServiceAccount can read the pod logs in the `library` namespsce.
